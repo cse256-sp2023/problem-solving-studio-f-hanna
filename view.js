@@ -1,4 +1,17 @@
 // ---- Define your dialogs  and panels here ----
+var panel = define_new_effective_permissions("panel", true);
+$("#sidepanel").append(panel)
+
+// $('#sidepanel').attr('filepath', '/C')
+
+// ADDING A NEW USER
+
+var newUser = define_new_user_select_field("new_user", "Show User Permissions", function(selected_user) { 
+    $('#panel').attr('filepath', '/C/presentation_documents/important_file.txt')
+    $('#panel').attr('username', selected_user);
+})
+$("#sidepanel").append(newUser)
+
 
 
 
