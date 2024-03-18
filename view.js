@@ -13,6 +13,36 @@ var newUser = define_new_user_select_field("new_user", "Show User Permissions", 
 $("#sidepanel").append(newUser)
 
 
+// DIALOG FUNC
+
+var dialog = define_new_dialog("dialog", 'Permissions')
+
+$(".perm_info").click(function(){
+    console.log('clicked!')
+    $( "#dialog" ).dialog("open");
+
+    // console log - step 3
+    // console.log($("#panel").attr('filepath'))
+    // console.log($("#panel").attr('username'))
+    // console.log($(this).attr('permission_name'))   
+
+    // step 4
+    var file_path = $("#panel").attr('filepath')
+    var username = $("#panel").attr('username')
+    var perm_name = $(this).attr('permission_name')
+
+    var file_obj = path_to_file[file_path]
+    var user_obj = all_users[username]
+
+    var explanation = allow_user_action(file_obj, user_obj, perm_name, true)
+    var explanation_text = get_explanation_text(explanation)
+
+    dialog.text(explanation_text)
+
+
+})
+
+
 
 
 // ---- Display file structure ----
